@@ -23,7 +23,7 @@ defaults:
     type: 'chapters'
   values:
     encoding: 'utf-8'
-    layout: 'default'
+    layout: 'chapter'
     title: 'Scroll'
 - scope:
     path: ''
