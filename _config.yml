@@ -25,7 +25,14 @@ defaults:
     encoding: 'utf-8'
     layout: 'default'
     title: 'Scroll'
-collections_dir: data
+- scope:
+    path: ''
+    type: 'stories'
+  values:
+    encoding: 'utf-8'
+    layout: 'story'
+    title: 'Story'
+collections_dir: _data
 collections:
   authors:
     output: true

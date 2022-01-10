@@ -1,6 +1,6 @@
 # Ignore data directory.
-/data/*
-!/data/.gitkeep
+/_data/*
+!/_data/.gitkeep
 
 # Ignore generated site files.
 /_site
