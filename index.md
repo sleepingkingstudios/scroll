@@ -3,9 +3,14 @@
 
 # Scroll
 
-It's what you want to give to each person.
-Your feelings, the feelings you believe they should have.
-To give to the one you love her greatest dream.
-To give her the ultimate emotion:
-The feeling of total life, the vision of all the world's colors at once.
-That is the reason for my existence.
+## [All Authors](/authors)
+
+<ul>
+  {% for author in site.authors limit:5 %}
+    {% assign stories = site.stories | where: "author", author.slug %}
+    <li>
+      <a href="{{site.baseurl}}/authors/{{author.slug}}">{{ author.name }}</a>
+      ({{ stories | size }} Stor{% if stories.size == 1 %}y{% else %}ies{% endif %})
+    </li>
+  {% endfor %}
+</ul>

@@ -9,14 +9,21 @@ defaults:
     type: 'pages'
   values:
     encoding: 'utf-8'
-    layout: 'page'
+    layout: 'default'
     title: 'Scroll'
+- scope:
+    path: ''
+    type: 'authors'
+  values:
+    encoding: 'utf-8'
+    layout: 'author'
+    title: 'Author'
 - scope:
     path: ''
     type: 'chapters'
   values:
     encoding: 'utf-8'
-    layout: 'page'
+    layout: 'default'
     title: 'Scroll'
 collections_dir: data
 collections:
