@@ -11,3 +11,21 @@ defaults:
     encoding: 'utf-8'
     layout: 'page'
     title: 'Scroll'
+- scope:
+    path: ''
+    type: 'chapters'
+  values:
+    encoding: 'utf-8'
+    layout: 'page'
+    title: 'Scroll'
+collections_dir: data
+collections:
+  authors:
+    output: true
+    sort_by: slug
+  chapters:
+    output: true
+    sort_by: slug
+  stories:
+    output: true
+    sort_by: slug
