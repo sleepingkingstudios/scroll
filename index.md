@@ -21,9 +21,15 @@
   {% for story in site.stories limit:10 %}
     {% assign author = site.authors | where: "slug", story.author | first %}
     <li>
-      <a href="{{site.baseurl}}/stories/{{story.author}}/{{story.slug}}">{{ story.title }}</a>
-      by
-      <a href="{{site.baseurl}}/authors/{{author.slug}}">{{ author.name }}</a>
+      {% if author %}
+        <a href="{{site.baseurl}}/stories/{{story.author}}/{{story.slug}}">{{ story.title }}</a>
+        by
+        <a href="{{site.baseurl}}/authors/{{author.slug}}">{{ author.name }}</a>
+      {% else %}
+        <a href="{{site.baseurl}}/stories/{{story.slug}}">{{ story.title }}</a>
+        by
+        {{ story.author }}
+      {% endif %}
     </li>
   {% endfor %}
 </ul>

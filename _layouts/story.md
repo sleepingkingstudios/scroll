@@ -12,28 +12,42 @@ layout: default
 
 <p>
   By
-  <a href="{{site.baseurl}}/authors/{{author.slug}}">{{ author.name }}</a>
+  {% if author %}
+    <a href="{{site.baseurl}}/authors/{{author.slug}}">{{ author.name }}</a>
+  {% else %}
+    {{ story.author }}
+  {% endif %}
 </p>
 
-<p>
-  <strong>Rating:</strong> {{ story.rating }}
-</p>
+{% if story.rating %}
+  <p>
+    <strong>Rating:</strong> {{ story.rating }}
+  </p>
+{% endif %}
 
-<p>
-  <strong>Fandoms:</strong> {{ story.fandoms | join: ", " }}
-</p>
+{% if story.fandoms %}
+  <p>
+    <strong>Fandoms:</strong> {{ story.fandoms | join: ", " }}
+  </p>
+{% endif %}
 
-<p>
-  <strong>Pairings:</strong> {{ story.pairings | join: ", " }}
-</p>
+{% if story.pairings %}
+  <p>
+    <strong>Pairings:</strong> {{ story.pairings | join: ", " }}
+  </p>
+{% endif %}
 
-<p>
-  <strong>Tags:</strong> {{ story.tags | join: ", " }}
-</p>
+{% if story.tags %}
+  <p>
+    <strong>Tags:</strong> {{ story.tags | join: ", " }}
+  </p>
+{% endif %}
 
 {{ content }}
 
-{% if chapters_count == 1 %}
+{% if chapters_count == 0 %}
+  <!-- Do nothing here. -->
+{% elsif chapters_count == 1 %}
   {% assign chapter = chapters | first %}
   {{ chapter.content }}
 {% else %}
