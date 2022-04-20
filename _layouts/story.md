@@ -4,7 +4,13 @@ layout: default
 
 {% assign story = page %}
 {% assign author = site.authors | where: "slug", story.author | first %}
-{% capture qualified_slug %}{{ author.slug }}--{{ story.slug }}{% endcapture %}
+{% capture build_qualified_slug %}
+  {% if author %}
+    {{ author.slug | default: story.author | slugify }}--
+  {% endif %}
+  {{ story.slug }}
+{% endcapture %}
+{% assign qualified_slug = build_qualified_slug | strip_newlines | replace: " ", "" %}
 {% assign chapters = site.chapters | where: "story", qualified_slug %}
 {% assign chapters_count = chapters | size %}
 
@@ -55,7 +61,16 @@ layout: default
 
   <ul>
     {% for chapter in chapters %}
-      <li><a href="{{site.baseurl}}/chapters/{{author.slug}}/{{story.slug}}/{{chapter.slug}}">{{ chapter.title }}</a></li>
+      {% capture build_chapter_url %}
+        {{ site.baseurl }}/chapters
+        {% if author %}
+          /{{ author.slug }}
+        {% endif %}
+        /{{story.slug}}
+        /{{chapter.slug}}
+      {% endcapture %}
+      {% assign chapter_url = build_chapter_url | strip_newlines | replace: " ", "" %}
+      <li><a href="{{chapter_url}}">{{ chapter.title }}</a></li>
     {% endfor %}
   </ul>
 {% endif %}
