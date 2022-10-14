@@ -11,7 +11,7 @@ layout: default
   {{ story.slug }}
 {% endcapture %}
 {% assign qualified_slug = build_qualified_slug | strip_newlines | replace: " ", "" %}
-{% assign chapters = site.chapters | where: "story", qualified_slug %}
+{% assign chapters = site.chapters | where: "story", qualified_slug | sort: "chapter_index" %}
 {% assign chapters_count = chapters | size %}
 
 <h1>{{ story.title }}</h1>
