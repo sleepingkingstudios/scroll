@@ -43,3 +43,4 @@ collections:
   stories:
     output: true
     sort_by: slug
+theme: jekyll-theme-midnight
