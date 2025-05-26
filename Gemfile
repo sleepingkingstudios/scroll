@@ -2,7 +2,12 @@
 
 source 'http://rubygems.org'
 
-gem 'github-pages', group: :jekyll_plugins
-gem 'jekyll-docs'
+gem 'jekyll', '~> 4.4'
 
-ruby '2.7.5'
+# See https://github.com/pages-themes/midnight
+gem 'jekyll-theme-midnight'
+
+# Use Webrick as local content server.
+gem 'webrick', '~> 1.8', '>= 1.8.2'
+
+ruby '3.4.4'
